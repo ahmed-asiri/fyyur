@@ -75,5 +75,17 @@
 	</div>
 </section>
 
+<button id="delete" data-venue-id="{{venue.id}}" style="background-color: red; color:white; border: 1px solid pink; border-radius: 5px; padding: 10px;" >Delete Venue</button>
+<script>
+	document.querySelector('#delete').addEventListener("click", (eve) => {
+		fetch('/venues/' + eve.target.dataset.venueId, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+	})
+
+</script>
 {% endblock %}
 
